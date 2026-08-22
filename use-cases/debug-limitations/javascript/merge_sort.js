@@ -1,4 +1,3 @@
-// Buggy sorting function
 function mergeSort(arr) {
     if (arr.length <= 1) return arr;
 
@@ -10,7 +9,7 @@ function mergeSort(arr) {
 }
 
 function merge(left, right) {
-    let result = [];
+    const result = [];
     let i = 0;
     let j = 0;
 
@@ -24,10 +23,9 @@ function merge(left, right) {
         }
     }
 
-    // Bug: Only one of these loops will execute
     while (i < left.length) {
         result.push(left[i]);
-        j++; // Bug: incrementing j instead of i
+        i++;
     }
 
     while (j < right.length) {
@@ -38,5 +36,4 @@ function merge(left, right) {
     return result;
 }
 
-// Export functions for testing
 module.exports = { mergeSort };
