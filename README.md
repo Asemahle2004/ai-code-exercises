@@ -4,6 +4,10 @@ Code Exercises for AI Course for Software Engineers.
 
 This is still a work in progress - the idea is to capture the various exercise starter code examples in here.
 
+## Learner submission
+
+My consolidated exercise notes, verification evidence, reflections, and implemented changes are documented in [EXERCISE_SUBMISSIONS.md](EXERCISE_SUBMISSIONS.md).
+
 ## Exercises
 
  Use Case | Exercise | Instructions | Starter Code |
