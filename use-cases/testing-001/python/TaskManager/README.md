@@ -1,73 +1,56 @@
 # Task Management System
 
 ## Usage Instructions
+
 ### Prerequisites
 - Python 3.11 or higher
 - No additional external dependencies required
 
 ### Installation
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd task-manager
-```
-
-2. No additional installation steps required as the project uses Python standard library.
+1. Clone your fork of the repository.
+2. Open a terminal in this `TaskManager` folder.
+3. No package installation is required because the project uses the Python standard library.
 
 ### Run the CLI
 
-The CLI provides various commands to manage tasks:
-
-1. Create a new task:
+Create a task:
 ```bash
-python cli.py create "Task Title" --description "Task description" --priority 2 --due "2024-01-31" --tags "tag1,tag2"
+python cli.py create "Task Title" --description "Task description" --priority 2 --due "2026-08-25" --tags "tag1,tag2"
 ```
 
-2. List tasks:
+List tasks:
 ```bash
-# List all tasks
 python cli.py list
-
-# List by status (todo, in_progress, review, done)
 python cli.py list --status todo
-
-# List by priority (1=LOW, 2=MEDIUM, 3=HIGH, 4=URGENT)
 python cli.py list --priority 3
-
-# List overdue tasks
 python cli.py list --overdue
 ```
 
-3. Update tasks:
+Update a task:
 ```bash
-# Update task status
-python cli.py update-status <task_id> <new_status>
-
-# Update task priority
-python cli.py update-priority <task_id> <new_priority>
-
-# Update due date
-python cli.py update-due-date <task_id> "2024-02-15"
+python cli.py status <task_id> <new_status>
+python cli.py priority <task_id> <new_priority>
+python cli.py due <task_id> "2026-08-25"
 ```
 
-4. Manage tags:
+Manage tags:
 ```bash
-# Add a tag
-python cli.py add-tag <task_id> "new-tag"
-
-# Remove a tag
-python cli.py remove-tag <task_id> "tag-to-remove"
+python cli.py tag <task_id> "new-tag"
+python cli.py untag <task_id> "tag-to-remove"
 ```
 
-5. View task details and statistics:
+View, delete, and inspect statistics:
 ```bash
-# Show task details
 python cli.py show <task_id>
-
-# Show task statistics
+python cli.py delete <task_id>
 python cli.py stats
 ```
 
 ### Run the Tests
 
-TODO
+Run all tests in the exercise:
+```bash
+python -m unittest discover -v tests
+```
+
+The added tests focus on task-priority scoring, status and tag adjustments, ordering by importance, and limiting the returned top-priority tasks.
