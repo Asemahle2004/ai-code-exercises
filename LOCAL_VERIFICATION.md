@@ -21,20 +21,25 @@ The CLI was also inspected with `python cli.py --help`, and a real task was crea
 
 ## Error Diagnosis Challenge
 
-Command:
+Initial supplied-test verification after the off-by-one fix:
 
 ```powershell
 python -m unittest discover -v tests
 ```
-
-Result from the supplied test suite after the off-by-one fix:
 
 ```text
 Ran 2 tests in 0.021s
 OK
 ```
 
-A later follow-up commit adds an empty-inventory regression test as additional edge-case coverage. That new test should be run again after pulling the latest repository changes.
+A follow-up regression test was then added for the empty-inventory edge case. After pulling that change to the Windows clone, the expanded suite was run again:
+
+```text
+Ran 3 tests in 0.172s
+OK
+```
+
+The three passing tests now cover normal report output, an empty inventory, and the `main()` call path.
 
 ## Performance Optimization Challenge
 
@@ -47,7 +52,22 @@ Found 2431319 product combinations
 Execution time: 9.56 seconds
 ```
 
-Because the product prices are randomly generated, the result count and timing can differ between runs. A separate deterministic unit-test file was added afterward so correctness can be checked repeatably without relying on random data.
+Because the product prices are randomly generated, the result count and timing can differ between runs.
+
+A separate deterministic regression-test file was added afterward. After pulling it to the Windows clone, it was run with:
+
+```powershell
+python -m unittest -v test_inventory_analysis.py
+```
+
+Result:
+
+```text
+Ran 3 tests in 0.004s
+OK
+```
+
+Those tests verify that an exact target pair is returned only once, a single product is not paired with itself, and qualifying results remain sorted by price difference.
 
 ## Testing With AI
 
@@ -102,4 +122,4 @@ The corrected leftover-left loop increments `i`, allowing the merge to make prog
 
 ## Repository synchronization check
 
-At the end of the verification session, `git status` reported a clean working tree and the local `HEAD` matched `origin/main` at that point in time. New follow-up documentation and regression-test commits were added afterward, so the Windows clone needs another `git pull` before the next local verification run.
+The Windows clone was pulled after the first round of follow-up improvements, and both new regression suites passed locally. This verification record was then updated on GitHub with those measured results, so the clone needs one final `git pull` before a final local `HEAD` versus `origin/main` comparison.
