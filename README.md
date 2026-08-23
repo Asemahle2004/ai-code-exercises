@@ -8,6 +8,8 @@ This is still a work in progress - the idea is to capture the various exercise s
 
 My consolidated exercise notes, verification evidence, reflections, and implemented changes are documented in [EXERCISE_SUBMISSIONS.md](EXERCISE_SUBMISSIONS.md).
 
+The Windows verification runs for the completed exercises are recorded separately in [LOCAL_VERIFICATION.md](LOCAL_VERIFICATION.md), including the actual test counts and measured performance run.
+
 ## Exercises
 
  Use Case | Exercise | Instructions | Starter Code |
